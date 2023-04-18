@@ -8,7 +8,8 @@ function Wallet({ privateKey, handleSetState, balance, address }) {
     handleSetState({
       privateKey,
     });
-    if (privateKey) {
+    secp256k1.Signature.fromCompact;
+    if (privateKey && secp256k1.utils.isValidPrivateKey(privateKey)) {
       const publicKey = toHex(secp256k1.getPublicKey(privateKey));
       const {
         data: { balance },
