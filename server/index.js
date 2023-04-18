@@ -6,8 +6,7 @@ const port = 3042;
 app.use(cors());
 app.use(express.json());
 
-const { Signature, recoverPublicKey } = require("@noble/secp256k1");
-const { toHex } = require("ethereum-cryptography/utils");
+const { recoverPublicKey } = require("@noble/secp256k1");
 
 const balances = {
   "030ccca7e0a01ffc764b4faae67c21bc29af9fe99195a5a9b514c7399a931cfd08": 100,
@@ -49,6 +48,3 @@ function setInitialBalance(address) {
     balances[address] = 0;
   }
 }
-
-// // get signature from signature hex value
-// const signature = Signature.fromCompact(signatureHex);
